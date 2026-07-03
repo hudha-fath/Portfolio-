@@ -34,8 +34,8 @@
             <h3>Hello, I'm</h3>
             <h1> Fathima Hudha K</h1>
             <h2>
-                Final Year B.Tech CSE Student
-            </h2>
+    <span id="typing"></span>
+</h2>
             <p>
               I am a Final Year Computer Science Engineering student with a passion for building modern, responsive web applications. I enjoy learning new technologies, solving real-world problems, and continuously improving my programming and development skills.
             </p>
@@ -146,21 +146,50 @@
         </div>
     </section>
     
-    <section id="contact">
-        <h2 class="title">Contact Me</h2>
-        <div class="contact-container">
-            <form>
-                <input type="text" placeholder="Your Name">
-                <input type="email" placeholder="Email">
-                <textarea rows="6"
-                    placeholder="Message"></textarea>
-                <button type="submit">
-                    Send Message
-                </button>
-            </form>
-        </div>
-    </section>
+  <section id="contact">
+    <h2 class="title">Contact Me</h2>
 
+    <div class="contact-container">
+
+        <form id="contactForm">
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Your Name"
+                required
+            >
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Email"
+                required
+            >
+
+            <input
+                type="text"
+                id="subject"
+                placeholder="Subject"
+                required
+            >
+
+            <textarea
+                id="message"
+                rows="6"
+                placeholder="Message"
+                required
+            ></textarea>
+
+            <button type="submit">
+                Send Message
+            </button>
+
+        </form>
+
+    </div>
+</section>
+<button id="topBtn">↑</button>
     <footer>
         <div class="social">
             <a href="https://www.linkedin.com/in/fathima-hudha-0b8485317?utm_source=share_via&utm_content=profile&utm_medium=member_android">

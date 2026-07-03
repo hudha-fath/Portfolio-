@@ -79,19 +79,7 @@ topBtn.onclick = () => {
         behavior:"smooth"
     });
 };
-const form = document.querySelector("form");
-form.addEventListener("submit",(e)=>{
-    e.preventDefault();
-    const name=form.querySelector("input[type='text']").value.trim();
-    const email=form.querySelector("input[type='email']").value.trim();
-    const message=form.querySelector("textarea").value.trim();
-    if(name==="" || email==="" || message===""){
-        alert("Please fill all the fields.");
-        return;
-    }
-    alert("Thank you! Your message has been received.");
-    form.reset();
-});
+
 const navbar=document.querySelector("nav");
 window.addEventListener("scroll",()=>{
     if(window.scrollY>50){
@@ -99,5 +87,37 @@ window.addEventListener("scroll",()=>{
     }
     else{
      navbar.style.background="rgba(15,23,42,.95)";
+    }
+});
+const contactForm = document.getElementById("contactForm");
+
+contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value,
+    };
+
+    try {
+        const response = await fetch("http://localhost:5000/contact", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+
+        alert(result.message);
+
+        contactForm.reset();
+
+    } catch (error) {
+        alert("Something went wrong!");
+        console.log(error);
     }
 });
